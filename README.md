@@ -17,8 +17,8 @@ This repository contains a sample Oracle APEX application with custom UI themes 
 ## 🎨 How to Change Theme Style
 
 1. Run the imported application.
-2. Locate and click the **Theme Style Selector** (usually in the settings or header area).
-3. Choose from available styles (Light, Dark, Custom, etc.).
+2. Locate and click the **Theme Style Selector** menu.
+3. Choose from available styles.
 4. The theme will update instantly.
 
 > 💡 **Tip**: You can also customize or create new theme styles under  
@@ -31,7 +31,8 @@ This repository contains a sample Oracle APEX application with custom UI themes 
 | Theme 1 | Theme 2 | Theme 3 |
 |--------|---------|---------|
 | ![Theme 1](1.png) | ![Theme 2](2.png) | ![Theme 3](3.png) |
-
+| ![Theme 4](4.png) | ![Theme 5](5.png) | ![Theme 6](6.png) |
+| ![Theme 7](7.png) | ![Theme 8](8.png) | 
 ---
 
 ## 🔗 Additional Resources
