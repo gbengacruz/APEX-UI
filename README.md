@@ -34,7 +34,6 @@ This repository contains a sample Oracle APEX application with custom UI themes 
 | Theme 4 | Theme 5 | Theme 6 |
 | ![Theme 4](/img/4.png) | ![Theme 5](/img/5.png) | ![Theme 6](/img/6.png) |
 | Theme 7 | Theme 8 | 
-|--------|---------|
 | ![Theme 7](/img/7.png) | ![Theme 8](/img/8.png) | 
 ---
 
