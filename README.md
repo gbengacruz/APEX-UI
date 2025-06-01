@@ -6,7 +6,7 @@ This repository contains a sample Oracle APEX application with custom UI themes 
 
 ## 📥 How to Import the Application
 
-1. Login to your Oracle APEX workspace.
+1. Login to your Oracle APEX workspace (APEX 24).
 2. Go to **App Builder** and click **Import**.
 3. Upload the file `f144.sql` from this repository.
 4. Follow the wizard to complete the import process.
