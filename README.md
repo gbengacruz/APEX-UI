@@ -1,7 +1,7 @@
 # Oracle APEX UI Design
 
 This repository contains a sample Oracle APEX application with custom UI themes and design options. <br>
-Live view  https://oci.dropletssoftware.com/ords/r/saas/apex-ui  <br>
+Live view - https://oci.dropletssoftware.com/ords/r/saas/apex-ui  <br>
 Username - demo <br>
 Password - demo
 
