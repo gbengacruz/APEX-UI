@@ -20,7 +20,7 @@ Password - demo
 ## 🎨 How to Change Theme Style
 
 1. Run the imported application.
-2. Locate and click the **Theme Style Selection** menu.
+2. Scroll down to the footer and click the **Customize**.
 3. Choose from available styles.
 4. The theme will update instantly.
 
