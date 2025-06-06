@@ -36,7 +36,7 @@ prompt APPLICATION 144 - APEX UI
 -- Application Export:
 --   Application:     144
 --   Name:            APEX UI
---   Date and Time:   16:32 Friday May 30, 2025
+--   Date and Time:   18:30 Friday June 6, 2025
 --   Exported By:     DEV
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -113,7 +113,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'APEX UI'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>20
-,p_version_scn=>44496435308448
+,p_version_scn=>44497717325367
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -130,13 +130,13 @@ wwv_flow_imp_shared.create_user_interface(
 ,p_theme_id=>42
 ,p_home_url=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
 ,p_login_url=>'f?p=&APP_ID.:LOGIN:&APP_SESSION.::&DEBUG.:::'
-,p_theme_style_by_user_pref=>false
+,p_theme_style_by_user_pref=>true
 ,p_built_with_love=>false
 ,p_global_page_id=>0
 ,p_navigation_list_id=>wwv_flow_imp.id(25672751088191225)
 ,p_navigation_list_position=>'SIDE'
 ,p_navigation_list_template_id=>2467739217141810545
-,p_nav_list_template_options=>'js-defaultCollapsed:js-navCollapsed--hidden:t-TreeNav--styleA'
+,p_nav_list_template_options=>'#DEFAULT#:js-defaultCollapsed:js-navCollapsed--hidden:t-TreeNav--classic'
 ,p_nav_bar_type=>'LIST'
 ,p_nav_bar_list_id=>wwv_flow_imp.id(25673958525191293)
 ,p_nav_bar_list_template_id=>2847543055748234966
@@ -2072,11 +2072,6 @@ wwv_flow_imp_page.create_page_group(
 );
 end;
 /
-prompt --application/comments
-begin
-null;
-end;
-/
 prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
 begin
 wwv_flow_imp_shared.create_menu(
@@ -2119,7 +2114,7 @@ wwv_flow_imp_shared.create_theme(
 ,p_nav_bar_type=>'LIST'
 ,p_reference_id=>4072363937200175119
 ,p_is_locked=>false
-,p_current_theme_style_id=>wwv_flow_imp.id(25726994320896298)
+,p_current_theme_style_id=>wwv_flow_imp.id(36465927437204048)
 ,p_default_page_template=>4072355960268175073
 ,p_default_dialog_template=>2100407606326202693
 ,p_error_template=>2101157952850466385
@@ -2141,7 +2136,7 @@ wwv_flow_imp_shared.create_theme(
 ,p_default_calendar_template=>4072363550766175095
 ,p_default_list_template=>4072361143931175087
 ,p_default_nav_list_template=>2526754704087354841
-,p_default_top_nav_list_temp=>2526754704087354841
+,p_default_top_nav_list_temp=>2467739217141810545
 ,p_default_side_nav_list_temp=>2467739217141810545
 ,p_default_nav_list_position=>'SIDE'
 ,p_default_dialogbtnr_template=>2126429139436695430
@@ -2150,7 +2145,7 @@ wwv_flow_imp_shared.create_theme(
 ,p_default_required_label=>1609122147107268652
 ,p_default_navbar_list_template=>2847543055748234966
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_theme_file_prefix(42),'#APEX_FILES#themes/theme_42/24.2/')
-,p_files_version=>95
+,p_files_version=>101
 ,p_icon_library=>'FONTAPEX'
 ,p_javascript_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '#APEX_FILES#libraries/apex/#MIN_DIRECTORY#widget.stickyWidget#MIN#.js?v=#APEX_VERSION#',
@@ -2471,6 +2466,119 @@ wwv_flow_imp_shared.create_theme_style(
 ||'0,\n    0 6px 0,\n    6px 6px 0;\n  border-radius: 50%;\n}\n\n/* Remove default user icon */\n.clear-avatar-icons .t-Avatar.t-Avatar--icon.fa-user:before {\n  display: none;\n}\n\n/* Initiative Icon */\n.initiative-icon {\n  margin: 0 0.5rem 0.5rem 1'
 ||'rem;\n  max-width: 50px;\n}\n\n/* Curve-Edged Buttons */\n.t-Button,\n.t-Button--icon {\n  border-radius: 8px; /* Adjust to 12px or 16px for smoother corners */\n}\n\n\n","useCustomLess":"N"}'
 ,p_theme_roller_output_file_url=>'#THEME_DB_FILES#26286970430391355.css'
+,p_theme_roller_read_only=>false
+);
+wwv_flow_imp_shared.create_theme_style(
+ p_id=>wwv_flow_imp.id(36265865290056024)
+,p_theme_id=>42
+,p_name=>'RainbowWood Light'
+,p_css_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#APEX_FILES#libraries/oracle-fonts/oraclesans-apex#MIN#.css?v=#APEX_VERSION#',
+'#THEME_FILES#css/Redwood#MIN#.css?v=#APEX_VERSION#'))
+,p_css_classes=>' rw-mode-header--dark rw-mode-body--light rw-mode-nav--light rw-mode-body-header--light'
+,p_is_public=>true
+,p_is_accessible=>false
+,p_theme_roller_input_file_urls=>'#THEME_FILES#less/theme/Redwood-Theme.less'
+,p_theme_roller_config=>'{"classes":["rw-mode-header--dark","rw-mode-body--light","rw-mode-nav--light","rw-mode-body-header--light"],"vars":{},"customCSS":":root {\n  /* Rainbow color stops */\n  --color-red:    #E63946;\n  --color-orange: #F4A261;\n  --color-yellow: #E9C46A'
+||';\n  --color-green:  #2A9D8F;\n  --color-blue:   #3A86FF;\n  --color-indigo: #8338EC;\n  --color-violet: #9D4EDD;\n\n  --color-light-bg:       #f9f9fb;\n  --color-dark-bg:        #1a1a1a;\n  --color-text-primary:   #ffffff;\n  --color-text-secondary:'
+||' #e2e8f0;\n}\n\n/* Helper for a full rainbow gradient (if you ever need to assign via class) */\n.rainbow-gradient {\n  background: linear-gradient(\n    to right,\n    var(--color-red),\n    var(--color-orange),\n    var(--color-yellow),\n    var(--'
+||'color-green),\n    var(--color-blue),\n    var(--color-indigo),\n    var(--color-violet)\n  );\n}\n\n/* Header Branding */\n.t-Header-branding {\n  padding: 1rem 2rem;\n  /* Directly use a full rainbow gradient */\n  background: linear-gradient(\n   '
+||' to right,\n    var(--color-red),\n    var(--color-orange),\n    var(--color-yellow),\n    var(--color-green),\n    var(--color-blue),\n    var(--color-indigo),\n    var(--color-violet)\n  );\n  color: var(--color-text-primary);\n  font-size: 1.25rem'
+||';\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n\n/* Breadcrumb Region */\n.t-BreadcrumbRegion-body {\n  padding: 0.5rem 1rem;\n}\n\n/* Page Titles (Dark Mode) */\n.rw-mode-body-header--dark .t-Body-title,\nbody:not([class*=rw'
+||unistr('-pillar--]).rw-mode-body-header--dark .t-Body-title {\005Cn  color: var(--color-text-primary);\005Cn  /* Simpler Indigo\2192Violet gradient for titles */\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-indigo),\005Cn    var(--color-violet)\005Cn  );\005Cn}\005Cn')
+||'\n/* Hot Buttons (apply full rainbow gradient) */\n.a-Button--hot,\n.t-Button--hot,\n.apex-button-group input:checked + label,\n.ui-button--hot {\n  background: linear-gradient(\n    to right,\n    var(--color-red),\n    var(--color-orange),\n    var'
+||'(--color-yellow),\n    var(--color-green),\n    var(--color-blue),\n    var(--color-indigo),\n    var(--color-violet)\n  );\n  color: var(--color-text-primary);\n  border: none;\n  transition: background 0.3s ease;\n}\n\n.a-Button--hot:hover,\n.t-But'
+||unistr('ton--hot:hover {\005Cn  /* On hover: simpler red\2192orange\2192yellow */\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-red),\005Cn    var(--color-orange),\005Cn    var(--color-yellow)\005Cn  );\005Cn}\005Cn\005Cn/* Success Buttons */\005Cn.t-Button--success {\005Cn  backgrou')
+||'nd-color: var(--color-green);\n  color: var(--color-text-primary);\n}\n.t-Button--success:hover {\n  background-color: var(--color-green);\n}\n\n/* Footer */\nfooter {\n  padding: 1rem;\n  background-color: var(--color-dark-bg);\n  color: var(--color'
+||'-text-secondary);\n  text-align: center;\n}\n\n/* Grid Menu Icon */\n.icon-menu-grid {\n  width: 1.25rem;\n  height: 1.25rem;\n  display: grid;\n  place-items: center;\n}\n.icon-menu-grid::before {\n  content: \"\";\n  display: block;\n  width: 0.25r'
+||'em;\n  height: 0.25rem;\n  background-color: currentColor;\n  box-shadow:\n    -6px -6px 0,\n    0 -6px 0,\n    6px -6px 0,\n    -6px 0 0,\n    6px 0 0,\n    -6px 6px 0,\n    0 6px 0,\n    6px 6px 0;\n  border-radius: 50%;\n}\n\n/* Remove default use'
+||'r icon */\n.clear-avatar-icons .t-Avatar.t-Avatar--icon.fa-user:before {\n  display: none;\n}\n\n/* Initiative Icon */\n.initiative-icon {\n  margin: 0 0.5rem 0.5rem 1rem;\n  max-width: 40px;\n}\n\n/* Rounded Buttons */\n.t-Button,\n.t-Button--icon {'
+||'\n  border-radius: 10px;\n}\n\n/* Hero Region Icon */\n.t-HeroRegion-icon {\n  align-items: center;\n  background-color: #fff;\n}\n","useCustomLess":"N"}'
+,p_theme_roller_output_file_url=>'#THEME_DB_FILES#36265865290056024.css'
+,p_theme_roller_read_only=>false
+);
+wwv_flow_imp_shared.create_theme_style(
+ p_id=>wwv_flow_imp.id(36267024714089449)
+,p_theme_id=>42
+,p_name=>'BlueSeaWood Light'
+,p_css_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#APEX_FILES#libraries/oracle-fonts/oraclesans-apex#MIN#.css?v=#APEX_VERSION#',
+'#THEME_FILES#css/Redwood#MIN#.css?v=#APEX_VERSION#'))
+,p_css_classes=>' rw-mode-header--dark rw-mode-body--light rw-mode-nav--light rw-mode-body-header--light'
+,p_is_public=>true
+,p_is_accessible=>false
+,p_theme_roller_input_file_urls=>'#THEME_FILES#less/theme/Redwood-Theme.less'
+,p_theme_roller_config=>unistr('{"classes":["rw-mode-header--dark","rw-mode-body--light","rw-mode-nav--light","rw-mode-body-header--light"],"vars":{},"customCSS":":root {\005Cn  /* Blue\2010Sea color stops */\005Cn  --color-sea-dark:   #0B3D91;  /* Deep navy */\005Cn  --color-sea-mid:    #0077B6; ')
+||' /* Teal-blue */\n  --color-sea-light:  #00B4D8;  /* Cyan */\n  --color-sea-pale:   #90E0EF;  /* Pale aqua */\n\n  --color-light-bg:       #f9f9fb;\n  --color-dark-bg:        #1a1a1a;\n  --color-text-primary:   #ffffff;\n  --color-text-secondary: #e2'
+||'e8f0;\n}\n\n/* Helper for a full blue-sea gradient */\n.blue-sea-gradient {\n  background: linear-gradient(\n    to right,\n    var(--color-sea-dark),\n    var(--color-sea-mid),\n    var(--color-sea-light),\n    var(--color-sea-pale)\n  );\n}\n\n/* H'
+||'eader Branding */\n.t-Header-branding {\n  padding: 1rem 2rem;\n  /* Use the blue-sea gradient */\n  background: linear-gradient(\n    to right,\n    var(--color-sea-dark),\n    var(--color-sea-mid),\n    var(--color-sea-light),\n    var(--color-sea-'
+||'pale)\n  );\n  color: var(--color-text-primary);\n  font-size: 1.25rem;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n\n/* Breadcrumb Region */\n.t-BreadcrumbRegion-body {\n  padding: 0.5rem 1rem;\n}\n\n/* Page Titles (Dark Mo'
+||unistr('de) */\005Cn.rw-mode-body-header--dark .t-Body-title,\005Cnbody:not([class*=rw-pillar--]).rw-mode-body-header--dark .t-Body-title {\005Cn  color: var(--color-text-primary);\005Cn  /* Simpler dark\2192mid-sea gradient for titles */\005Cn  background: linear-gradient(\005Cn    to')
+||' right,\n    var(--color-sea-dark),\n    var(--color-sea-mid)\n  );\n}\n\n/* Hot Buttons (apply full blue-sea gradient) */\n.a-Button--hot,\n.t-Button--hot,\n.apex-button-group input:checked + label,\n.ui-button--hot {\n  background: linear-gradient('
+||'\n    to right,\n    var(--color-sea-dark),\n    var(--color-sea-mid),\n    var(--color-sea-light),\n    var(--color-sea-pale)\n  );\n  color: var(--color-text-primary);\n  border: none;\n  transition: background 0.3s ease;\n}\n\n.a-Button--hot:hover'
+||unistr(',\005Cn.t-Button--hot:hover {\005Cn  /* On hover: just dark\2192mid\2192light */\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-sea-dark),\005Cn    var(--color-sea-mid),\005Cn    var(--color-sea-light)\005Cn  );\005Cn}\005Cn\005Cn/* Success Buttons */\005Cn.t-Button--success {')
+||'\n  background-color: var(--color-sea-mid);\n  color: var(--color-text-primary);\n}\n.t-Button--success:hover {\n  background-color: var(--color-sea-mid);\n}\n\n/* Footer */\nfooter {\n  padding: 1rem;\n  background-color: var(--color-dark-bg);\n  co'
+||'lor: var(--color-text-secondary);\n  text-align: center;\n}\n\n/* Grid Menu Icon */\n.icon-menu-grid {\n  width: 1.25rem;\n  height: 1.25rem;\n  display: grid;\n  place-items: center;\n}\n.icon-menu-grid::before {\n  content: \"\";\n  display: block;'
+||'\n  width: 0.25rem;\n  height: 0.25rem;\n  background-color: currentColor;\n  box-shadow:\n    -6px -6px 0,\n    0 -6px 0,\n    6px -6px 0,\n    -6px 0 0,\n    6px 0 0,\n    -6px 6px 0,\n    0 6px 0,\n    6px 6px 0;\n  border-radius: 50%;\n}\n\n/* Re'
+||'move default user icon */\n.clear-avatar-icons .t-Avatar.t-Avatar--icon.fa-user:before {\n  display: none;\n}\n\n/* Initiative Icon */\n.initiative-icon {\n  margin: 0 0.5rem 0.5rem 1rem;\n  max-width: 40px;\n}\n\n/* Rounded Buttons */\n.t-Button,\n.'
+||'t-Button--icon {\n  border-radius: 10px;\n}\n\n/* Hero Region Icon */\n.t-HeroRegion-icon {\n  align-items: center;\n  background-color: #fff;\n}\n","useCustomLess":"N"}'
+,p_theme_roller_output_file_url=>'#THEME_DB_FILES#36267024714089449.css'
+,p_theme_roller_read_only=>false
+);
+wwv_flow_imp_shared.create_theme_style(
+ p_id=>wwv_flow_imp.id(36268106463096497)
+,p_theme_id=>42
+,p_name=>'BlueSeaWood'
+,p_css_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#APEX_FILES#libraries/oracle-fonts/oraclesans-apex#MIN#.css?v=#APEX_VERSION#',
+'#THEME_FILES#css/Redwood#MIN#.css?v=#APEX_VERSION#'))
+,p_css_classes=>' rw-mode-header--dark rw-mode-body-header--dark rw-mode-body--light rw-mode-nav--light'
+,p_is_public=>true
+,p_is_accessible=>false
+,p_theme_roller_input_file_urls=>'#THEME_FILES#less/theme/Redwood-Theme.less'
+,p_theme_roller_config=>unistr('{"classes":["rw-mode-header--dark","rw-mode-body-header--dark","rw-mode-body--light","rw-mode-nav--light"],"vars":{},"customCSS":":root {\005Cn  /* Blue\2010Sea color stops */\005Cn  --color-sea-dark:   #0B3D91;  /* Deep navy */\005Cn  --color-sea-mid:    #0077B6;  ')
+||'/* Teal-blue */\n  --color-sea-light:  #00B4D8;  /* Cyan */\n  --color-sea-pale:   #90E0EF;  /* Pale aqua */\n\n  --color-light-bg:       #f9f9fb;\n  --color-dark-bg:        #1a1a1a;\n  --color-text-primary:   #ffffff;\n  --color-text-secondary: #e2e'
+||'8f0;\n}\n\n/* Helper for a full blue-sea gradient */\n.blue-sea-gradient {\n  background: linear-gradient(\n    to right,\n    var(--color-sea-dark),\n    var(--color-sea-mid),\n    var(--color-sea-light),\n    var(--color-sea-pale)\n  );\n}\n\n/* He'
+||'ader Branding */\n.t-Header-branding {\n  padding: 1rem 2rem;\n  /* Use the blue-sea gradient */\n  background: linear-gradient(\n    to right,\n    var(--color-sea-dark),\n    var(--color-sea-mid),\n    var(--color-sea-light),\n    var(--color-sea-p'
+||'ale)\n  );\n  color: var(--color-text-primary);\n  font-size: 1.25rem;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n\n/* Breadcrumb Region */\n.t-BreadcrumbRegion-body {\n  padding: 0.5rem 1rem;\n}\n\n/* Page Titles (Dark Mod'
+||unistr('e) */\005Cn.rw-mode-body-header--dark .t-Body-title,\005Cnbody:not([class*=rw-pillar--]).rw-mode-body-header--dark .t-Body-title {\005Cn  color: var(--color-text-primary);\005Cn  /* Simpler dark\2192mid-sea gradient for titles */\005Cn  background: linear-gradient(\005Cn    to ')
+||'right,\n    var(--color-sea-dark),\n    var(--color-sea-mid)\n  );\n}\n\n/* Hot Buttons (apply full blue-sea gradient) */\n.a-Button--hot,\n.t-Button--hot,\n.apex-button-group input:checked + label,\n.ui-button--hot {\n  background: linear-gradient(\'
+||'n    to right,\n    var(--color-sea-dark),\n    var(--color-sea-mid),\n    var(--color-sea-light),\n    var(--color-sea-pale)\n  );\n  color: var(--color-text-primary);\n  border: none;\n  transition: background 0.3s ease;\n}\n\n.a-Button--hot:hover,'
+||unistr('\005Cn.t-Button--hot:hover {\005Cn  /* On hover: just dark\2192mid\2192light */\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-sea-dark),\005Cn    var(--color-sea-mid),\005Cn    var(--color-sea-light)\005Cn  );\005Cn}\005Cn\005Cn/* Success Buttons */\005Cn.t-Button--success {\005C')
+||'n  background-color: var(--color-sea-mid);\n  color: var(--color-text-primary);\n}\n.t-Button--success:hover {\n  background-color: var(--color-sea-mid);\n}\n\n/* Footer */\nfooter {\n  padding: 1rem;\n  background-color: var(--color-dark-bg);\n  col'
+||'or: var(--color-text-secondary);\n  text-align: center;\n}\n\n/* Grid Menu Icon */\n.icon-menu-grid {\n  width: 1.25rem;\n  height: 1.25rem;\n  display: grid;\n  place-items: center;\n}\n.icon-menu-grid::before {\n  content: \"\";\n  display: block;\'
+||'n  width: 0.25rem;\n  height: 0.25rem;\n  background-color: currentColor;\n  box-shadow:\n    -6px -6px 0,\n    0 -6px 0,\n    6px -6px 0,\n    -6px 0 0,\n    6px 0 0,\n    -6px 6px 0,\n    0 6px 0,\n    6px 6px 0;\n  border-radius: 50%;\n}\n\n/* Rem'
+||'ove default user icon */\n.clear-avatar-icons .t-Avatar.t-Avatar--icon.fa-user:before {\n  display: none;\n}\n\n/* Initiative Icon */\n.initiative-icon {\n  margin: 0 0.5rem 0.5rem 1rem;\n  max-width: 40px;\n}\n\n/* Rounded Buttons */\n.t-Button,\n.t'
+||'-Button--icon {\n  border-radius: 10px;\n}\n\n/* Hero Region Icon */\n.t-HeroRegion-icon {\n  align-items: center;\n  background-color: #fff;\n}\n","useCustomLess":"N"}'
+,p_theme_roller_output_file_url=>'#THEME_DB_FILES#36268106463096497.css'
+,p_theme_roller_read_only=>false
+);
+wwv_flow_imp_shared.create_theme_style(
+ p_id=>wwv_flow_imp.id(36465927437204048)
+,p_theme_id=>42
+,p_name=>'GrennLeafWood'
+,p_css_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#APEX_FILES#libraries/oracle-fonts/oraclesans-apex#MIN#.css?v=#APEX_VERSION#',
+'#THEME_FILES#css/Redwood#MIN#.css?v=#APEX_VERSION#'))
+,p_css_classes=>' rw-mode-header--dark rw-mode-body-header--dark rw-mode-body--light rw-mode-nav--light'
+,p_is_public=>true
+,p_is_accessible=>false
+,p_theme_roller_input_file_urls=>'#THEME_FILES#less/theme/Redwood-Theme.less'
+,p_theme_roller_config=>unistr('{"classes":["rw-mode-header--dark","rw-mode-body-header--dark","rw-mode-body--light","rw-mode-nav--light"],"vars":{},"customCSS":":root {\005Cn  /* Green\2010Leaf color stops */\005Cn  --color-leaf-dark:   #0B3D0B;  /* Dark forest green */\005Cn  --color-leaf-mid:  ')
+||'  #2E7D32;  /* Mid green */\n  --color-leaf-light:  #66BB6A;  /* Light green */\n  --color-leaf-pale:   #C8E6C9;  /* Pale mint green */\n\n  --color-light-bg:       #f9f9fb;\n  --color-dark-bg:        #1a1a1a;\n  --color-text-primary:   #ffffff;\n  -'
+||unistr('-color-text-secondary: #e2e8f0;\005Cn}\005Cn\005Cn/* Helper for a full green\2010leaf gradient */\005Cn.green\2010leaf\2010gradient {\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-leaf-dark),\005Cn    var(--color-leaf-mid),\005Cn    var(--color-leaf-light),\005Cn    var(-')
+||unistr('-color-leaf-pale)\005Cn  );\005Cn}\005Cn\005Cn/* Header Branding */\005Cn.t-Header-branding {\005Cn  padding: 1rem 2rem;\005Cn  /* Use the green\2010leaf gradient */\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-leaf-dark),\005Cn    var(--color-leaf-mid),\005Cn    var(--c')
+||'olor-leaf-light),\n    var(--color-leaf-pale)\n  );\n  color: var(--color-text-primary);\n  font-size: 1.25rem;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n\n/* Breadcrumb Region */\n.t-BreadcrumbRegion-body {\n  padding: 0.'
+||unistr('5rem 1rem;\005Cn}\005Cn\005Cn/* Page Titles (Dark Mode) */\005Cn.rw-mode-body-header--dark .t-Body-title,\005Cnbody:not([class*=rw-pillar--]).rw-mode-body-header--dark .t-Body-title {\005Cn  color: var(--color-text-primary);\005Cn  /* Simpler dark\2192mid\2010leaf gradient for titles *')
+||unistr('/\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-leaf-dark),\005Cn    var(--color-leaf-mid)\005Cn  );\005Cn}\005Cn\005Cn/* Hot Buttons (apply full green\2010leaf gradient) */\005Cn.a-Button--hot,\005Cn.t-Button--hot,\005Cn.apex-button-group input:checked + label,\005Cn.ui-')
+||'button--hot {\n  background: linear-gradient(\n    to right,\n    var(--color-leaf-dark),\n    var(--color-leaf-mid),\n    var(--color-leaf-light),\n    var(--color-leaf-pale)\n  );\n  color: var(--color-text-primary);\n  border: none;\n  transition:'
+||unistr(' background 0.3s ease;\005Cn}\005Cn\005Cn.a-Button--hot:hover,\005Cn.t-Button--hot:hover {\005Cn  /* On hover: just dark\2192mid\2192light */\005Cn  background: linear-gradient(\005Cn    to right,\005Cn    var(--color-leaf-dark),\005Cn    var(--color-leaf-mid),\005Cn    var(--color-leaf-light)\005Cn  ')
+||');\n}\n\n/* Success Buttons */\n.t-Button--success {\n  background-color: var(--color-leaf-mid);\n  color: var(--color-text-primary);\n}\n.t-Button--success:hover {\n  background-color: var(--color-leaf-mid);\n}\n\n/* Footer */\nfooter {\n  padding: '
+||'1rem;\n  background-color: var(--color-dark-bg);\n  color: var(--color-text-secondary);\n  text-align: center;\n}\n\n/* Grid Menu Icon */\n.icon-menu-grid {\n  width: 1.25rem;\n  height: 1.25rem;\n  display: grid;\n  place-items: center;\n}\n.icon-me'
+||'nu-grid::before {\n  content: \"\";\n  display: block;\n  width: 0.25rem;\n  height: 0.25rem;\n  background-color: currentColor;\n  box-shadow:\n    -6px -6px 0,\n    0 -6px 0,\n    6px -6px 0,\n    -6px 0 0,\n    6px 0 0,\n    -6px 6px 0,\n    0 6px'
+||' 0,\n    6px 6px 0;\n  border-radius: 50%;\n}\n\n/* Remove default user icon */\n.clear-avatar-icons .t-Avatar.t-Avatar--icon.fa-user:before {\n  display: none;\n}\n\n/* Initiative Icon */\n.initiative-icon {\n  margin: 0 0.5rem 0.5rem 1rem;\n  max-w'
+||'idth: 40px;\n}\n\n/* Rounded Buttons */\n.t-Button,\n.t-Button--icon {\n  border-radius: 10px;\n}\n\n/* Hero Region Icon */\n.t-HeroRegion-icon {\n  align-items: center;\n  background-color: #fff;\n}\n","useCustomLess":"N"}'
+,p_theme_roller_output_file_url=>'#THEME_DB_FILES#36465927437204048.css'
 ,p_theme_roller_read_only=>false
 );
 end;
@@ -2906,6 +3014,181 @@ wwv_flow_imp_shared.create_theme_file(
 ,p_file_charset=>'utf-8'
 ,p_file_content => wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
 );
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '2F2A210D0A20436F707972696768742028632920323032302C20323032342C204F7261636C6520616E642F6F722069747320616666696C69617465732E0D0A202A2F0D0A0D0A3A726F6F74207B0D0A20202F2A205261696E626F7720636F6C6F72207374';
+wwv_flow_imp.g_varchar2_table(2) := '6F7073202A2F0D0A20202D2D636F6C6F722D7265643A20202020234536333934363B0D0A20202D2D636F6C6F722D6F72616E67653A20234634413236313B0D0A20202D2D636F6C6F722D79656C6C6F773A20234539433436413B0D0A20202D2D636F6C6F';
+wwv_flow_imp.g_varchar2_table(3) := '722D677265656E3A2020233241394438463B0D0A20202D2D636F6C6F722D626C75653A202020233341383646463B0D0A20202D2D636F6C6F722D696E6469676F3A20233833333845433B0D0A20202D2D636F6C6F722D76696F6C65743A20233944344544';
+wwv_flow_imp.g_varchar2_table(4) := '443B0D0A0D0A20202D2D636F6C6F722D6C696768742D62673A20202020202020236639663966623B0D0A20202D2D636F6C6F722D6461726B2D62673A2020202020202020233161316131613B0D0A20202D2D636F6C6F722D746578742D7072696D617279';
+wwv_flow_imp.g_varchar2_table(5) := '3A202020236666666666663B0D0A20202D2D636F6C6F722D746578742D7365636F6E646172793A20236532653866303B0D0A7D0D0A0D0A2F2A2048656C70657220666F7220612066756C6C207261696E626F77206772616469656E742028696620796F75';
+wwv_flow_imp.g_varchar2_table(6) := '2065766572206E65656420746F2061737369676E2076696120636C61737329202A2F0D0A2E7261696E626F772D6772616469656E74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768';
+wwv_flow_imp.g_varchar2_table(7) := '742C0D0A20202020766172282D2D636F6C6F722D726564292C0D0A20202020766172282D2D636F6C6F722D6F72616E6765292C0D0A20202020766172282D2D636F6C6F722D79656C6C6F77292C0D0A20202020766172282D2D636F6C6F722D677265656E';
+wwv_flow_imp.g_varchar2_table(8) := '292C0D0A20202020766172282D2D636F6C6F722D626C7565292C0D0A20202020766172282D2D636F6C6F722D696E6469676F292C0D0A20202020766172282D2D636F6C6F722D76696F6C6574290D0A2020293B0D0A7D0D0A0D0A2F2A2048656164657220';
+wwv_flow_imp.g_varchar2_table(9) := '4272616E64696E67202A2F0D0A2E742D4865616465722D6272616E64696E67207B0D0A202070616464696E673A203172656D203272656D3B0D0A20202F2A204469726563746C792075736520612066756C6C207261696E626F77206772616469656E7420';
+wwv_flow_imp.g_varchar2_table(10) := '2A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D726564292C0D0A20202020766172282D2D636F6C6F722D6F72616E6765292C0D0A';
+wwv_flow_imp.g_varchar2_table(11) := '20202020766172282D2D636F6C6F722D79656C6C6F77292C0D0A20202020766172282D2D636F6C6F722D677265656E292C0D0A20202020766172282D2D636F6C6F722D626C7565292C0D0A20202020766172282D2D636F6C6F722D696E6469676F292C0D';
+wwv_flow_imp.g_varchar2_table(12) := '0A20202020766172282D2D636F6C6F722D76696F6C6574290D0A2020293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A2020666F6E742D73697A653A20312E323572656D3B0D0A2020666F6E742D77';
+wwv_flow_imp.g_varchar2_table(13) := '65696768743A203630303B0D0A2020626F782D736861646F773A20302032707820347078207267626128302C20302C20302C20302E31293B0D0A7D0D0A0D0A2F2A2042726561646372756D6220526567696F6E202A2F0D0A2E742D42726561646372756D';
+wwv_flow_imp.g_varchar2_table(14) := '62526567696F6E2D626F6479207B0D0A202070616464696E673A20302E3572656D203172656D3B0D0A7D0D0A0D0A2F2A2050616765205469746C657320284461726B204D6F646529202A2F0D0A2E72772D6D6F64652D626F64792D6865616465722D2D64';
+wwv_flow_imp.g_varchar2_table(15) := '61726B202E742D426F64792D7469746C652C0D0A626F64793A6E6F74285B636C6173732A3D72772D70696C6C61722D2D5D292E72772D6D6F64652D626F64792D6865616465722D2D6461726B202E742D426F64792D7469746C65207B0D0A2020636F6C6F';
+wwv_flow_imp.g_varchar2_table(16) := '723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A20202F2A2053696D706C657220496E6469676FE2869256696F6C6574206772616469656E7420666F72207469746C6573202A2F0D0A20206261636B67726F756E643A206C69';
+wwv_flow_imp.g_varchar2_table(17) := '6E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D696E6469676F292C0D0A20202020766172282D2D636F6C6F722D76696F6C6574290D0A2020293B0D0A7D0D0A0D0A2F2A20486F7420';
+wwv_flow_imp.g_varchar2_table(18) := '427574746F6E7320286170706C792066756C6C207261696E626F77206772616469656E7429202A2F0D0A2E612D427574746F6E2D2D686F742C0D0A2E742D427574746F6E2D2D686F742C0D0A2E617065782D627574746F6E2D67726F757020696E707574';
+wwv_flow_imp.g_varchar2_table(19) := '3A636865636B6564202B206C6162656C2C0D0A2E75692D627574746F6E2D2D686F74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F72';
+wwv_flow_imp.g_varchar2_table(20) := '2D726564292C0D0A20202020766172282D2D636F6C6F722D6F72616E6765292C0D0A20202020766172282D2D636F6C6F722D79656C6C6F77292C0D0A20202020766172282D2D636F6C6F722D677265656E292C0D0A20202020766172282D2D636F6C6F72';
+wwv_flow_imp.g_varchar2_table(21) := '2D626C7565292C0D0A20202020766172282D2D636F6C6F722D696E6469676F292C0D0A20202020766172282D2D636F6C6F722D76696F6C6574290D0A2020293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D61727929';
+wwv_flow_imp.g_varchar2_table(22) := '3B0D0A2020626F726465723A206E6F6E653B0D0A20207472616E736974696F6E3A206261636B67726F756E6420302E337320656173653B0D0A7D0D0A0D0A2E612D427574746F6E2D2D686F743A686F7665722C0D0A2E742D427574746F6E2D2D686F743A';
+wwv_flow_imp.g_varchar2_table(23) := '686F766572207B0D0A20202F2A204F6E20686F7665723A2073696D706C657220726564E286926F72616E6765E2869279656C6C6F77202A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F20726967';
+wwv_flow_imp.g_varchar2_table(24) := '68742C0D0A20202020766172282D2D636F6C6F722D726564292C0D0A20202020766172282D2D636F6C6F722D6F72616E6765292C0D0A20202020766172282D2D636F6C6F722D79656C6C6F77290D0A2020293B0D0A7D0D0A0D0A2F2A2053756363657373';
+wwv_flow_imp.g_varchar2_table(25) := '20427574746F6E73202A2F0D0A2E742D427574746F6E2D2D73756363657373207B0D0A20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D677265656E293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578';
+wwv_flow_imp.g_varchar2_table(26) := '742D7072696D617279293B0D0A7D0D0A2E742D427574746F6E2D2D737563636573733A686F766572207B0D0A20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D677265656E293B0D0A7D0D0A0D0A2F2A20466F6F74657220';
+wwv_flow_imp.g_varchar2_table(27) := '2A2F0D0A666F6F746572207B0D0A202070616464696E673A203172656D3B0D0A20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D6461726B2D6267293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D74657874';
+wwv_flow_imp.g_varchar2_table(28) := '2D7365636F6E64617279293B0D0A2020746578742D616C69676E3A2063656E7465723B0D0A7D0D0A0D0A2F2A2047726964204D656E752049636F6E202A2F0D0A2E69636F6E2D6D656E752D67726964207B0D0A202077696474683A20312E323572656D3B';
+wwv_flow_imp.g_varchar2_table(29) := '0D0A20206865696768743A20312E323572656D3B0D0A2020646973706C61793A20677269643B0D0A2020706C6163652D6974656D733A2063656E7465723B0D0A7D0D0A2E69636F6E2D6D656E752D677269643A3A6265666F7265207B0D0A2020636F6E74';
+wwv_flow_imp.g_varchar2_table(30) := '656E743A2022223B0D0A2020646973706C61793A20626C6F636B3B0D0A202077696474683A20302E323572656D3B0D0A20206865696768743A20302E323572656D3B0D0A20206261636B67726F756E642D636F6C6F723A2063757272656E74436F6C6F72';
+wwv_flow_imp.g_varchar2_table(31) := '3B0D0A2020626F782D736861646F773A0D0A202020202D367078202D36707820302C0D0A2020202030202D36707820302C0D0A20202020367078202D36707820302C0D0A202020202D367078203020302C0D0A20202020367078203020302C0D0A202020';
+wwv_flow_imp.g_varchar2_table(32) := '202D3670782036707820302C0D0A20202020302036707820302C0D0A202020203670782036707820303B0D0A2020626F726465722D7261646975733A203530253B0D0A7D0D0A0D0A2F2A2052656D6F76652064656661756C7420757365722069636F6E20';
+wwv_flow_imp.g_varchar2_table(33) := '2A2F0D0A2E636C6561722D6176617461722D69636F6E73202E742D4176617461722E742D4176617461722D2D69636F6E2E66612D757365723A6265666F7265207B0D0A2020646973706C61793A206E6F6E653B0D0A7D0D0A0D0A2F2A20496E6974696174';
+wwv_flow_imp.g_varchar2_table(34) := '6976652049636F6E202A2F0D0A2E696E69746961746976652D69636F6E207B0D0A20206D617267696E3A203020302E3572656D20302E3572656D203172656D3B0D0A20206D61782D77696474683A20343070783B0D0A7D0D0A0D0A2F2A20526F756E6465';
+wwv_flow_imp.g_varchar2_table(35) := '6420427574746F6E73202A2F0D0A2E742D427574746F6E2C0D0A2E742D427574746F6E2D2D69636F6E207B0D0A2020626F726465722D7261646975733A20313070783B0D0A7D0D0A0D0A2F2A204865726F20526567696F6E2049636F6E202A2F0D0A2E74';
+wwv_flow_imp.g_varchar2_table(36) := '2D4865726F526567696F6E2D69636F6E207B0D0A2020616C69676E2D6974656D733A2063656E7465723B0D0A20206261636B67726F756E642D636F6C6F723A20236666663B0D0A7D0D0A';
+wwv_flow_imp_shared.create_theme_file(
+ p_id=>wwv_flow_imp.id(36266240837056056)
+,p_theme_id=>42
+,p_file_name=>'36265865290056024.css'
+,p_mime_type=>'text/css'
+,p_file_charset=>'utf-8'
+,p_file_content => wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+);
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '2F2A210D0A20436F707972696768742028632920323032302C20323032342C204F7261636C6520616E642F6F722069747320616666696C69617465732E0D0A202A2F0D0A0D0A3A726F6F74207B0D0A20202F2A20426C7565E2809053656120636F6C6F72';
+wwv_flow_imp.g_varchar2_table(2) := '2073746F7073202A2F0D0A20202D2D636F6C6F722D7365612D6461726B3A202020233042334439313B20202F2A2044656570206E617679202A2F0D0A20202D2D636F6C6F722D7365612D6D69643A20202020233030373742363B20202F2A205465616C2D';
+wwv_flow_imp.g_varchar2_table(3) := '626C7565202A2F0D0A20202D2D636F6C6F722D7365612D6C696768743A2020233030423444383B20202F2A204379616E202A2F0D0A20202D2D636F6C6F722D7365612D70616C653A202020233930453045463B20202F2A2050616C652061717561202A2F';
+wwv_flow_imp.g_varchar2_table(4) := '0D0A0D0A20202D2D636F6C6F722D6C696768742D62673A20202020202020236639663966623B0D0A20202D2D636F6C6F722D6461726B2D62673A2020202020202020233161316131613B0D0A20202D2D636F6C6F722D746578742D7072696D6172793A20';
+wwv_flow_imp.g_varchar2_table(5) := '2020236666666666663B0D0A20202D2D636F6C6F722D746578742D7365636F6E646172793A20236532653866303B0D0A7D0D0A0D0A2F2A2048656C70657220666F7220612066756C6C20626C75652D736561206772616469656E74202A2F0D0A2E626C75';
+wwv_flow_imp.g_varchar2_table(6) := '652D7365612D6772616469656E74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172';
+wwv_flow_imp.g_varchar2_table(7) := '282D2D636F6C6F722D7365612D6D6964292C0D0A20202020766172282D2D636F6C6F722D7365612D6C69676874292C0D0A20202020766172282D2D636F6C6F722D7365612D70616C65290D0A2020293B0D0A7D0D0A0D0A2F2A2048656164657220427261';
+wwv_flow_imp.g_varchar2_table(8) := '6E64696E67202A2F0D0A2E742D4865616465722D6272616E64696E67207B0D0A202070616464696E673A203172656D203272656D3B0D0A20202F2A205573652074686520626C75652D736561206772616469656E74202A2F0D0A20206261636B67726F75';
+wwv_flow_imp.g_varchar2_table(9) := '6E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F6C6F722D7365612D6D6964292C0D0A2020202076617228';
+wwv_flow_imp.g_varchar2_table(10) := '2D2D636F6C6F722D7365612D6C69676874292C0D0A20202020766172282D2D636F6C6F722D7365612D70616C65290D0A2020293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A2020666F6E742D7369';
+wwv_flow_imp.g_varchar2_table(11) := '7A653A20312E323572656D3B0D0A2020666F6E742D7765696768743A203630303B0D0A2020626F782D736861646F773A20302032707820347078207267626128302C20302C20302C20302E31293B0D0A7D0D0A0D0A2F2A2042726561646372756D622052';
+wwv_flow_imp.g_varchar2_table(12) := '6567696F6E202A2F0D0A2E742D42726561646372756D62526567696F6E2D626F6479207B0D0A202070616464696E673A20302E3572656D203172656D3B0D0A7D0D0A0D0A2F2A2050616765205469746C657320284461726B204D6F646529202A2F0D0A2E';
+wwv_flow_imp.g_varchar2_table(13) := '72772D6D6F64652D626F64792D6865616465722D2D6461726B202E742D426F64792D7469746C652C0D0A626F64793A6E6F74285B636C6173732A3D72772D70696C6C61722D2D5D292E72772D6D6F64652D626F64792D6865616465722D2D6461726B202E';
+wwv_flow_imp.g_varchar2_table(14) := '742D426F64792D7469746C65207B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A20202F2A2053696D706C6572206461726BE286926D69642D736561206772616469656E7420666F72207469746C6573';
+wwv_flow_imp.g_varchar2_table(15) := '202A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F6C6F722D7365612D';
+wwv_flow_imp.g_varchar2_table(16) := '6D6964290D0A2020293B0D0A7D0D0A0D0A2F2A20486F7420427574746F6E7320286170706C792066756C6C20626C75652D736561206772616469656E7429202A2F0D0A2E612D427574746F6E2D2D686F742C0D0A2E742D427574746F6E2D2D686F742C0D';
+wwv_flow_imp.g_varchar2_table(17) := '0A2E617065782D627574746F6E2D67726F757020696E7075743A636865636B6564202B206C6162656C2C0D0A2E75692D627574746F6E2D2D686F74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A2020202074';
+wwv_flow_imp.g_varchar2_table(18) := '6F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F6C6F722D7365612D6D6964292C0D0A20202020766172282D2D636F6C6F722D7365612D6C69676874292C0D0A202020207661';
+wwv_flow_imp.g_varchar2_table(19) := '72282D2D636F6C6F722D7365612D70616C65290D0A2020293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A2020626F726465723A206E6F6E653B0D0A20207472616E736974696F6E3A206261636B67';
+wwv_flow_imp.g_varchar2_table(20) := '726F756E6420302E337320656173653B0D0A7D0D0A0D0A2E612D427574746F6E2D2D686F743A686F7665722C0D0A2E742D427574746F6E2D2D686F743A686F766572207B0D0A20202F2A204F6E20686F7665723A206A757374206461726BE286926D6964';
+wwv_flow_imp.g_varchar2_table(21) := 'E286926C69676874202A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F';
+wwv_flow_imp.g_varchar2_table(22) := '6C6F722D7365612D6D6964292C0D0A20202020766172282D2D636F6C6F722D7365612D6C69676874290D0A2020293B0D0A7D0D0A0D0A2F2A205375636365737320427574746F6E73202A2F0D0A2E742D427574746F6E2D2D73756363657373207B0D0A20';
+wwv_flow_imp.g_varchar2_table(23) := '206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D7365612D6D6964293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A7D0D0A2E742D427574746F6E2D2D73756363657373';
+wwv_flow_imp.g_varchar2_table(24) := '3A686F766572207B0D0A20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D7365612D6D6964293B0D0A7D0D0A0D0A2F2A20466F6F746572202A2F0D0A666F6F746572207B0D0A202070616464696E673A203172656D3B0D0A';
+wwv_flow_imp.g_varchar2_table(25) := '20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D6461726B2D6267293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7365636F6E64617279293B0D0A2020746578742D616C69676E3A2063656E74';
+wwv_flow_imp.g_varchar2_table(26) := '65723B0D0A7D0D0A0D0A2F2A2047726964204D656E752049636F6E202A2F0D0A2E69636F6E2D6D656E752D67726964207B0D0A202077696474683A20312E323572656D3B0D0A20206865696768743A20312E323572656D3B0D0A2020646973706C61793A';
+wwv_flow_imp.g_varchar2_table(27) := '20677269643B0D0A2020706C6163652D6974656D733A2063656E7465723B0D0A7D0D0A2E69636F6E2D6D656E752D677269643A3A6265666F7265207B0D0A2020636F6E74656E743A2022223B0D0A2020646973706C61793A20626C6F636B3B0D0A202077';
+wwv_flow_imp.g_varchar2_table(28) := '696474683A20302E323572656D3B0D0A20206865696768743A20302E323572656D3B0D0A20206261636B67726F756E642D636F6C6F723A2063757272656E74436F6C6F723B0D0A2020626F782D736861646F773A0D0A202020202D367078202D36707820';
+wwv_flow_imp.g_varchar2_table(29) := '302C0D0A2020202030202D36707820302C0D0A20202020367078202D36707820302C0D0A202020202D367078203020302C0D0A20202020367078203020302C0D0A202020202D3670782036707820302C0D0A20202020302036707820302C0D0A20202020';
+wwv_flow_imp.g_varchar2_table(30) := '3670782036707820303B0D0A2020626F726465722D7261646975733A203530253B0D0A7D0D0A0D0A2F2A2052656D6F76652064656661756C7420757365722069636F6E202A2F0D0A2E636C6561722D6176617461722D69636F6E73202E742D4176617461';
+wwv_flow_imp.g_varchar2_table(31) := '722E742D4176617461722D2D69636F6E2E66612D757365723A6265666F7265207B0D0A2020646973706C61793A206E6F6E653B0D0A7D0D0A0D0A2F2A20496E69746961746976652049636F6E202A2F0D0A2E696E69746961746976652D69636F6E207B0D';
+wwv_flow_imp.g_varchar2_table(32) := '0A20206D617267696E3A203020302E3572656D20302E3572656D203172656D3B0D0A20206D61782D77696474683A20343070783B0D0A7D0D0A0D0A2F2A20526F756E64656420427574746F6E73202A2F0D0A2E742D427574746F6E2C0D0A2E742D427574';
+wwv_flow_imp.g_varchar2_table(33) := '746F6E2D2D69636F6E207B0D0A2020626F726465722D7261646975733A20313070783B0D0A7D0D0A0D0A2F2A204865726F20526567696F6E2049636F6E202A2F0D0A2E742D4865726F526567696F6E2D69636F6E207B0D0A2020616C69676E2D6974656D';
+wwv_flow_imp.g_varchar2_table(34) := '733A2063656E7465723B0D0A20206261636B67726F756E642D636F6C6F723A20236666663B0D0A7D0D0A';
+wwv_flow_imp_shared.create_theme_file(
+ p_id=>wwv_flow_imp.id(36267488924089450)
+,p_theme_id=>42
+,p_file_name=>'36267024714089449.css'
+,p_mime_type=>'text/css'
+,p_file_charset=>'utf-8'
+,p_file_content => wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+);
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '2F2A210D0A20436F707972696768742028632920323032302C20323032342C204F7261636C6520616E642F6F722069747320616666696C69617465732E0D0A202A2F0D0A0D0A3A726F6F74207B0D0A20202F2A20426C7565E2809053656120636F6C6F72';
+wwv_flow_imp.g_varchar2_table(2) := '2073746F7073202A2F0D0A20202D2D636F6C6F722D7365612D6461726B3A202020233042334439313B20202F2A2044656570206E617679202A2F0D0A20202D2D636F6C6F722D7365612D6D69643A20202020233030373742363B20202F2A205465616C2D';
+wwv_flow_imp.g_varchar2_table(3) := '626C7565202A2F0D0A20202D2D636F6C6F722D7365612D6C696768743A2020233030423444383B20202F2A204379616E202A2F0D0A20202D2D636F6C6F722D7365612D70616C653A202020233930453045463B20202F2A2050616C652061717561202A2F';
+wwv_flow_imp.g_varchar2_table(4) := '0D0A0D0A20202D2D636F6C6F722D6C696768742D62673A20202020202020236639663966623B0D0A20202D2D636F6C6F722D6461726B2D62673A2020202020202020233161316131613B0D0A20202D2D636F6C6F722D746578742D7072696D6172793A20';
+wwv_flow_imp.g_varchar2_table(5) := '2020236666666666663B0D0A20202D2D636F6C6F722D746578742D7365636F6E646172793A20236532653866303B0D0A7D0D0A0D0A2F2A2048656C70657220666F7220612066756C6C20626C75652D736561206772616469656E74202A2F0D0A2E626C75';
+wwv_flow_imp.g_varchar2_table(6) := '652D7365612D6772616469656E74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172';
+wwv_flow_imp.g_varchar2_table(7) := '282D2D636F6C6F722D7365612D6D6964292C0D0A20202020766172282D2D636F6C6F722D7365612D6C69676874292C0D0A20202020766172282D2D636F6C6F722D7365612D70616C65290D0A2020293B0D0A7D0D0A0D0A2F2A2048656164657220427261';
+wwv_flow_imp.g_varchar2_table(8) := '6E64696E67202A2F0D0A2E742D4865616465722D6272616E64696E67207B0D0A202070616464696E673A203172656D203272656D3B0D0A20202F2A205573652074686520626C75652D736561206772616469656E74202A2F0D0A20206261636B67726F75';
+wwv_flow_imp.g_varchar2_table(9) := '6E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F6C6F722D7365612D6D6964292C0D0A2020202076617228';
+wwv_flow_imp.g_varchar2_table(10) := '2D2D636F6C6F722D7365612D6C69676874292C0D0A20202020766172282D2D636F6C6F722D7365612D70616C65290D0A2020293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A2020666F6E742D7369';
+wwv_flow_imp.g_varchar2_table(11) := '7A653A20312E323572656D3B0D0A2020666F6E742D7765696768743A203630303B0D0A2020626F782D736861646F773A20302032707820347078207267626128302C20302C20302C20302E31293B0D0A7D0D0A0D0A2F2A2042726561646372756D622052';
+wwv_flow_imp.g_varchar2_table(12) := '6567696F6E202A2F0D0A2E742D42726561646372756D62526567696F6E2D626F6479207B0D0A202070616464696E673A20302E3572656D203172656D3B0D0A7D0D0A0D0A2F2A2050616765205469746C657320284461726B204D6F646529202A2F0D0A2E';
+wwv_flow_imp.g_varchar2_table(13) := '72772D6D6F64652D626F64792D6865616465722D2D6461726B202E742D426F64792D7469746C652C0D0A626F64793A6E6F74285B636C6173732A3D72772D70696C6C61722D2D5D292E72772D6D6F64652D626F64792D6865616465722D2D6461726B202E';
+wwv_flow_imp.g_varchar2_table(14) := '742D426F64792D7469746C65207B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A20202F2A2053696D706C6572206461726BE286926D69642D736561206772616469656E7420666F72207469746C6573';
+wwv_flow_imp.g_varchar2_table(15) := '202A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F6C6F722D7365612D';
+wwv_flow_imp.g_varchar2_table(16) := '6D6964290D0A2020293B0D0A7D0D0A0D0A2F2A20486F7420427574746F6E7320286170706C792066756C6C20626C75652D736561206772616469656E7429202A2F0D0A2E612D427574746F6E2D2D686F742C0D0A2E742D427574746F6E2D2D686F742C0D';
+wwv_flow_imp.g_varchar2_table(17) := '0A2E617065782D627574746F6E2D67726F757020696E7075743A636865636B6564202B206C6162656C2C0D0A2E75692D627574746F6E2D2D686F74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A2020202074';
+wwv_flow_imp.g_varchar2_table(18) := '6F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F6C6F722D7365612D6D6964292C0D0A20202020766172282D2D636F6C6F722D7365612D6C69676874292C0D0A202020207661';
+wwv_flow_imp.g_varchar2_table(19) := '72282D2D636F6C6F722D7365612D70616C65290D0A2020293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A2020626F726465723A206E6F6E653B0D0A20207472616E736974696F6E3A206261636B67';
+wwv_flow_imp.g_varchar2_table(20) := '726F756E6420302E337320656173653B0D0A7D0D0A0D0A2E612D427574746F6E2D2D686F743A686F7665722C0D0A2E742D427574746F6E2D2D686F743A686F766572207B0D0A20202F2A204F6E20686F7665723A206A757374206461726BE286926D6964';
+wwv_flow_imp.g_varchar2_table(21) := 'E286926C69676874202A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D7365612D6461726B292C0D0A20202020766172282D2D636F';
+wwv_flow_imp.g_varchar2_table(22) := '6C6F722D7365612D6D6964292C0D0A20202020766172282D2D636F6C6F722D7365612D6C69676874290D0A2020293B0D0A7D0D0A0D0A2F2A205375636365737320427574746F6E73202A2F0D0A2E742D427574746F6E2D2D73756363657373207B0D0A20';
+wwv_flow_imp.g_varchar2_table(23) := '206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D7365612D6D6964293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A7D0D0A2E742D427574746F6E2D2D73756363657373';
+wwv_flow_imp.g_varchar2_table(24) := '3A686F766572207B0D0A20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D7365612D6D6964293B0D0A7D0D0A0D0A2F2A20466F6F746572202A2F0D0A666F6F746572207B0D0A202070616464696E673A203172656D3B0D0A';
+wwv_flow_imp.g_varchar2_table(25) := '20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D6461726B2D6267293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7365636F6E64617279293B0D0A2020746578742D616C69676E3A2063656E74';
+wwv_flow_imp.g_varchar2_table(26) := '65723B0D0A7D0D0A0D0A2F2A2047726964204D656E752049636F6E202A2F0D0A2E69636F6E2D6D656E752D67726964207B0D0A202077696474683A20312E323572656D3B0D0A20206865696768743A20312E323572656D3B0D0A2020646973706C61793A';
+wwv_flow_imp.g_varchar2_table(27) := '20677269643B0D0A2020706C6163652D6974656D733A2063656E7465723B0D0A7D0D0A2E69636F6E2D6D656E752D677269643A3A6265666F7265207B0D0A2020636F6E74656E743A2022223B0D0A2020646973706C61793A20626C6F636B3B0D0A202077';
+wwv_flow_imp.g_varchar2_table(28) := '696474683A20302E323572656D3B0D0A20206865696768743A20302E323572656D3B0D0A20206261636B67726F756E642D636F6C6F723A2063757272656E74436F6C6F723B0D0A2020626F782D736861646F773A0D0A202020202D367078202D36707820';
+wwv_flow_imp.g_varchar2_table(29) := '302C0D0A2020202030202D36707820302C0D0A20202020367078202D36707820302C0D0A202020202D367078203020302C0D0A20202020367078203020302C0D0A202020202D3670782036707820302C0D0A20202020302036707820302C0D0A20202020';
+wwv_flow_imp.g_varchar2_table(30) := '3670782036707820303B0D0A2020626F726465722D7261646975733A203530253B0D0A7D0D0A0D0A2F2A2052656D6F76652064656661756C7420757365722069636F6E202A2F0D0A2E636C6561722D6176617461722D69636F6E73202E742D4176617461';
+wwv_flow_imp.g_varchar2_table(31) := '722E742D4176617461722D2D69636F6E2E66612D757365723A6265666F7265207B0D0A2020646973706C61793A206E6F6E653B0D0A7D0D0A0D0A2F2A20496E69746961746976652049636F6E202A2F0D0A2E696E69746961746976652D69636F6E207B0D';
+wwv_flow_imp.g_varchar2_table(32) := '0A20206D617267696E3A203020302E3572656D20302E3572656D203172656D3B0D0A20206D61782D77696474683A20343070783B0D0A7D0D0A0D0A2F2A20526F756E64656420427574746F6E73202A2F0D0A2E742D427574746F6E2C0D0A2E742D427574';
+wwv_flow_imp.g_varchar2_table(33) := '746F6E2D2D69636F6E207B0D0A2020626F726465722D7261646975733A20313070783B0D0A7D0D0A0D0A2F2A204865726F20526567696F6E2049636F6E202A2F0D0A2E742D4865726F526567696F6E2D69636F6E207B0D0A2020616C69676E2D6974656D';
+wwv_flow_imp.g_varchar2_table(34) := '733A2063656E7465723B0D0A20206261636B67726F756E642D636F6C6F723A20236666663B0D0A7D0D0A';
+wwv_flow_imp_shared.create_theme_file(
+ p_id=>wwv_flow_imp.id(36268592061096498)
+,p_theme_id=>42
+,p_file_name=>'36268106463096497.css'
+,p_mime_type=>'text/css'
+,p_file_charset=>'utf-8'
+,p_file_content => wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+);
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '2F2A210D0A20436F707972696768742028632920323032302C20323032342C204F7261636C6520616E642F6F722069747320616666696C69617465732E0D0A202A2F0D0A0D0A3A726F6F74207B0D0A20202F2A20477265656EE280904C65616620636F6C';
+wwv_flow_imp.g_varchar2_table(2) := '6F722073746F7073202A2F0D0A20202D2D636F6C6F722D6C6561662D6461726B3A202020233042334430423B20202F2A204461726B20666F7265737420677265656E202A2F0D0A20202D2D636F6C6F722D6C6561662D6D69643A20202020233245374433';
+wwv_flow_imp.g_varchar2_table(3) := '323B20202F2A204D696420677265656E202A2F0D0A20202D2D636F6C6F722D6C6561662D6C696768743A2020233636424236413B20202F2A204C6967687420677265656E202A2F0D0A20202D2D636F6C6F722D6C6561662D70616C653A20202023433845';
+wwv_flow_imp.g_varchar2_table(4) := '3643393B20202F2A2050616C65206D696E7420677265656E202A2F0D0A0D0A20202D2D636F6C6F722D6C696768742D62673A20202020202020236639663966623B0D0A20202D2D636F6C6F722D6461726B2D62673A202020202020202023316131613161';
+wwv_flow_imp.g_varchar2_table(5) := '3B0D0A20202D2D636F6C6F722D746578742D7072696D6172793A202020236666666666663B0D0A20202D2D636F6C6F722D746578742D7365636F6E646172793A20236532653866303B0D0A7D0D0A0D0A2F2A2048656C70657220666F7220612066756C6C';
+wwv_flow_imp.g_varchar2_table(6) := '20677265656EE280906C656166206772616469656E74202A2F0D0A2E677265656EE280906C656166E280906772616469656E74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C';
+wwv_flow_imp.g_varchar2_table(7) := '0D0A20202020766172282D2D636F6C6F722D6C6561662D6461726B292C0D0A20202020766172282D2D636F6C6F722D6C6561662D6D6964292C0D0A20202020766172282D2D636F6C6F722D6C6561662D6C69676874292C0D0A20202020766172282D2D63';
+wwv_flow_imp.g_varchar2_table(8) := '6F6C6F722D6C6561662D70616C65290D0A2020293B0D0A7D0D0A0D0A2F2A20486561646572204272616E64696E67202A2F0D0A2E742D4865616465722D6272616E64696E67207B0D0A202070616464696E673A203172656D203272656D3B0D0A20202F2A';
+wwv_flow_imp.g_varchar2_table(9) := '205573652074686520677265656EE280906C656166206772616469656E74202A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D6C65';
+wwv_flow_imp.g_varchar2_table(10) := '61662D6461726B292C0D0A20202020766172282D2D636F6C6F722D6C6561662D6D6964292C0D0A20202020766172282D2D636F6C6F722D6C6561662D6C69676874292C0D0A20202020766172282D2D636F6C6F722D6C6561662D70616C65290D0A202029';
+wwv_flow_imp.g_varchar2_table(11) := '3B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A2020666F6E742D73697A653A20312E323572656D3B0D0A2020666F6E742D7765696768743A203630303B0D0A2020626F782D736861646F773A203020';
+wwv_flow_imp.g_varchar2_table(12) := '32707820347078207267626128302C20302C20302C20302E31293B0D0A7D0D0A0D0A2F2A2042726561646372756D6220526567696F6E202A2F0D0A2E742D42726561646372756D62526567696F6E2D626F6479207B0D0A202070616464696E673A20302E';
+wwv_flow_imp.g_varchar2_table(13) := '3572656D203172656D3B0D0A7D0D0A0D0A2F2A2050616765205469746C657320284461726B204D6F646529202A2F0D0A2E72772D6D6F64652D626F64792D6865616465722D2D6461726B202E742D426F64792D7469746C652C0D0A626F64793A6E6F7428';
+wwv_flow_imp.g_varchar2_table(14) := '5B636C6173732A3D72772D70696C6C61722D2D5D292E72772D6D6F64652D626F64792D6865616465722D2D6461726B202E742D426F64792D7469746C65207B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B';
+wwv_flow_imp.g_varchar2_table(15) := '0D0A20202F2A2053696D706C6572206461726BE286926D6964E280906C656166206772616469656E7420666F72207469746C6573202A2F0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768';
+wwv_flow_imp.g_varchar2_table(16) := '742C0D0A20202020766172282D2D636F6C6F722D6C6561662D6461726B292C0D0A20202020766172282D2D636F6C6F722D6C6561662D6D6964290D0A2020293B0D0A7D0D0A0D0A2F2A20486F7420427574746F6E7320286170706C792066756C6C206772';
+wwv_flow_imp.g_varchar2_table(17) := '65656EE280906C656166206772616469656E7429202A2F0D0A2E612D427574746F6E2D2D686F742C0D0A2E742D427574746F6E2D2D686F742C0D0A2E617065782D627574746F6E2D67726F757020696E7075743A636865636B6564202B206C6162656C2C';
+wwv_flow_imp.g_varchar2_table(18) := '0D0A2E75692D627574746F6E2D2D686F74207B0D0A20206261636B67726F756E643A206C696E6561722D6772616469656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D6C6561662D6461726B292C0D0A202020';
+wwv_flow_imp.g_varchar2_table(19) := '20766172282D2D636F6C6F722D6C6561662D6D6964292C0D0A20202020766172282D2D636F6C6F722D6C6561662D6C69676874292C0D0A20202020766172282D2D636F6C6F722D6C6561662D70616C65290D0A2020293B0D0A2020636F6C6F723A207661';
+wwv_flow_imp.g_varchar2_table(20) := '72282D2D636F6C6F722D746578742D7072696D617279293B0D0A2020626F726465723A206E6F6E653B0D0A20207472616E736974696F6E3A206261636B67726F756E6420302E337320656173653B0D0A7D0D0A0D0A2E612D427574746F6E2D2D686F743A';
+wwv_flow_imp.g_varchar2_table(21) := '686F7665722C0D0A2E742D427574746F6E2D2D686F743A686F766572207B0D0A20202F2A204F6E20686F7665723A206A757374206461726BE286926D6964E286926C69676874202A2F0D0A20206261636B67726F756E643A206C696E6561722D67726164';
+wwv_flow_imp.g_varchar2_table(22) := '69656E74280D0A20202020746F2072696768742C0D0A20202020766172282D2D636F6C6F722D6C6561662D6461726B292C0D0A20202020766172282D2D636F6C6F722D6C6561662D6D6964292C0D0A20202020766172282D2D636F6C6F722D6C6561662D';
+wwv_flow_imp.g_varchar2_table(23) := '6C69676874290D0A2020293B0D0A7D0D0A0D0A2F2A205375636365737320427574746F6E73202A2F0D0A2E742D427574746F6E2D2D73756363657373207B0D0A20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D6C656166';
+wwv_flow_imp.g_varchar2_table(24) := '2D6D6964293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7072696D617279293B0D0A7D0D0A2E742D427574746F6E2D2D737563636573733A686F766572207B0D0A20206261636B67726F756E642D636F6C6F723A2076617228';
+wwv_flow_imp.g_varchar2_table(25) := '2D2D636F6C6F722D6C6561662D6D6964293B0D0A7D0D0A0D0A2F2A20466F6F746572202A2F0D0A666F6F746572207B0D0A202070616464696E673A203172656D3B0D0A20206261636B67726F756E642D636F6C6F723A20766172282D2D636F6C6F722D64';
+wwv_flow_imp.g_varchar2_table(26) := '61726B2D6267293B0D0A2020636F6C6F723A20766172282D2D636F6C6F722D746578742D7365636F6E64617279293B0D0A2020746578742D616C69676E3A2063656E7465723B0D0A7D0D0A0D0A2F2A2047726964204D656E752049636F6E202A2F0D0A2E';
+wwv_flow_imp.g_varchar2_table(27) := '69636F6E2D6D656E752D67726964207B0D0A202077696474683A20312E323572656D3B0D0A20206865696768743A20312E323572656D3B0D0A2020646973706C61793A20677269643B0D0A2020706C6163652D6974656D733A2063656E7465723B0D0A7D';
+wwv_flow_imp.g_varchar2_table(28) := '0D0A2E69636F6E2D6D656E752D677269643A3A6265666F7265207B0D0A2020636F6E74656E743A2022223B0D0A2020646973706C61793A20626C6F636B3B0D0A202077696474683A20302E323572656D3B0D0A20206865696768743A20302E323572656D';
+wwv_flow_imp.g_varchar2_table(29) := '3B0D0A20206261636B67726F756E642D636F6C6F723A2063757272656E74436F6C6F723B0D0A2020626F782D736861646F773A0D0A202020202D367078202D36707820302C0D0A2020202030202D36707820302C0D0A20202020367078202D3670782030';
+wwv_flow_imp.g_varchar2_table(30) := '2C0D0A202020202D367078203020302C0D0A20202020367078203020302C0D0A202020202D3670782036707820302C0D0A20202020302036707820302C0D0A202020203670782036707820303B0D0A2020626F726465722D7261646975733A203530253B';
+wwv_flow_imp.g_varchar2_table(31) := '0D0A7D0D0A0D0A2F2A2052656D6F76652064656661756C7420757365722069636F6E202A2F0D0A2E636C6561722D6176617461722D69636F6E73202E742D4176617461722E742D4176617461722D2D69636F6E2E66612D757365723A6265666F7265207B';
+wwv_flow_imp.g_varchar2_table(32) := '0D0A2020646973706C61793A206E6F6E653B0D0A7D0D0A0D0A2F2A20496E69746961746976652049636F6E202A2F0D0A2E696E69746961746976652D69636F6E207B0D0A20206D617267696E3A203020302E3572656D20302E3572656D203172656D3B0D';
+wwv_flow_imp.g_varchar2_table(33) := '0A20206D61782D77696474683A20343070783B0D0A7D0D0A0D0A2F2A20526F756E64656420427574746F6E73202A2F0D0A2E742D427574746F6E2C0D0A2E742D427574746F6E2D2D69636F6E207B0D0A2020626F726465722D7261646975733A20313070';
+wwv_flow_imp.g_varchar2_table(34) := '783B0D0A7D0D0A0D0A2F2A204865726F20526567696F6E2049636F6E202A2F0D0A2E742D4865726F526567696F6E2D69636F6E207B0D0A2020616C69676E2D6974656D733A2063656E7465723B0D0A20206261636B67726F756E642D636F6C6F723A2023';
+wwv_flow_imp.g_varchar2_table(35) := '6666663B0D0A7D0D0A';
+wwv_flow_imp_shared.create_theme_file(
+ p_id=>wwv_flow_imp.id(36466374237204072)
+,p_theme_id=>42
+,p_file_name=>'36465927437204048.css'
+,p_mime_type=>'text/css'
+,p_file_charset=>'utf-8'
+,p_file_content => wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+);
 end;
 /
 prompt --application/shared_components/user_interface/template_opt_groups
@@ -3105,6 +3388,7 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_image_alt=>'Theme Style Selection'
 ,p_button_position=>'NEXT'
 ,p_button_redirect_url=>'f?p=&APP_ID.:10010:&SESSION.::&DEBUG.:10010::'
+,p_button_condition_type=>'NEVER'
 ,p_icon_css_classes=>'fa-design'
 );
 wwv_flow_imp_page.create_page_button(
