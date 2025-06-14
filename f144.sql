@@ -36,7 +36,7 @@ prompt APPLICATION 144 - APEX UI
 -- Application Export:
 --   Application:     144
 --   Name:            APEX UI
---   Date and Time:   18:30 Friday June 6, 2025
+--   Date and Time:   16:33 Saturday June 14, 2025
 --   Exported By:     DEV
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -113,7 +113,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'APEX UI'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>20
-,p_version_scn=>44497717325367
+,p_version_scn=>44499325008940
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -2072,6 +2072,11 @@ wwv_flow_imp_page.create_page_group(
 );
 end;
 /
+prompt --application/comments
+begin
+null;
+end;
+/
 prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
 begin
 wwv_flow_imp_shared.create_menu(
@@ -3469,6 +3474,7 @@ wwv_flow_imp_page.create_page(
 ,p_first_item=>'AUTO_FIRST_ITEM'
 ,p_autocomplete_on_off=>'OFF'
 ,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'/*',
 '.t-Login-region{',
 '    background-color: #fff;',
 '}',
@@ -3483,6 +3489,89 @@ wwv_flow_imp_page.create_page(
 'background-position: center;',
 'background-repeat: no-repeat;',
 '}',
+'*/',
+'',
+'',
+'',
+'',
+'',
+'',
+'/* 1. Login container: keep background image and optionally overlay a subtle tint */',
+'.t-Login-container {',
+'  background: url(''#APP_FILES#color.png'') no-repeat center center;',
+'  background-size: cover; /* or `contain`/`auto` as needed */',
+'  position: relative;',
+'  /* Optionally add a translucent overlay in ::before if you want a color tint over the image */',
+'}',
+'',
+'',
+'/* 2. Login region: translucent panel on top of background */',
+'.t-Login-region {',
+'  position: relative; /* to be above the ::before overlay if needed */',
+unistr('  background-color: rgba(255, 255, 255, 0.4); /* \201Cdull glass\201D white with opacity; adjust alpha */'),
+'  backdrop-filter: blur(10px); /* blur content behind this panel */',
+'  -webkit-backdrop-filter: blur(10px);',
+'  border: 1px solid rgba(255, 255, 255, 0.5); /* subtle light border */',
+'  border-radius: 8px; /* soften corners like glass */',
+'  width: 320px;',
+'  margin-left: auto;',
+'  margin-right: auto; /* center horizontally */',
+'  padding: 24px; /* add padding inside region so content isn''t tight */',
+'  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* gentle shadow for depth */',
+'  z-index: 1; /* ensure above the container overlay */',
+'}',
+'',
+'/* 3. Login logo section: also translucent or solid based on preference */',
+'.t-Login-logo {',
+'  background-color: rgba(255, 255, 255, 0.6); /* slightly more opaque so logo area stands out */',
+'  backdrop-filter: blur(6px);',
+'  -webkit-backdrop-filter: blur(6px);',
+'  border-radius: 4px;',
+'  padding: 8px;',
+'  margin-bottom: 16px; /* space below logo */',
+'}',
+'',
+'/* 4. Mobile adjustments: for small screens, keep translucency so background shows through */',
+'@media only screen and (max-width: 480px) {',
+'  .t-PageBody--login .t-Body {',
+'    margin-top: 40px; /* keep some top space so background image visible */',
+'    background-color: transparent !important; /* allow full background image behind */',
+'  }',
+'  .t-Login-region {',
+'    background-color: rgba(255, 255, 255, 0.3) !important; /* slightly more transparent on mobile */',
+'    backdrop-filter: blur(8px) !important;',
+'    -webkit-backdrop-filter: blur(8px) !important;',
+'    width: auto; /* let it be fluid width with margins */',
+'    margin-left: 16px;',
+'    margin-right: 16px;',
+'    padding: 16px;',
+'  }',
+'}',
+'',
+'/* 5. Optional: if you need to ensure stacking order, ',
+'   make sure .t-Login-container has lower z-index than .t-Login-region */',
+'.t-Login-container {',
+'  z-index: 0;',
+'}',
+'',
+'/* 6. If your theme adds solid backgrounds on parent elements, ensure transparency: */',
+'.t-Login-region, ',
+'.t-Login-logo {',
+'  /* override any existing opaque backgrounds */',
+'  background-clip: padding-box;',
+'}',
+'',
+'/* 7. Notes:',
+'   - The `backdrop-filter` property blurs whatever is behind the element (i.e., the background image or page content).',
+'     Ensure the element (e.g., .t-Login-region) is semi-transparent (rgba) so the blur is visible.',
+unistr('   - Browser support: most modern browsers support `backdrop-filter`, but some older ones may not. In those, you\2019ll see only the semi-transparent color without blur.'),
+unistr('   - Adjust the RGBA alpha (e.g., 0.3, 0.4, 0.6) to increase or decrease translucency (\201Cdullness\201D).'),
+'   - `border-radius` softens edges like frosted glass.',
+'   - `box-shadow` adds depth so the panel floats over background.',
+'   - If you want the background image to be slightly darkened behind the region, you can tweak the `.t-Login-container::before` overlay color (e.g., `rgba(0,0,0,0.2)` for a darker tint).',
+'   - Make sure Inline CSS is placed after any theme CSS so these rules apply.',
+'   - Remove or comment out `padding` or `width` adjustments if APEX template already sets these; just ensure background-color/backdrop-filter rules remain.',
+'*/',
 ''))
 ,p_step_template=>2101157952850466385
 ,p_page_template_options=>'#DEFAULT#'
